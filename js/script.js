@@ -22,14 +22,19 @@ uno1.then((duo) =>
 			resolve(duo)
 		}
 	})).then((tree) => {
-		button.onclick = function () {
-			sumka.className = "_animation3";
-			sumka.innerHTML = 'Ты пидор'
-		}
+		new Promise((resolve, reject) => {
+			button.onclick = function () {
+				sumka.className = "_animation3";
+				sumka.innerHTML = 'Ты пидор'
+				setTimeout(reloading, 1000);
+			}
+		})
 	})
 
-
-function animation() {
-	sumka.classList.remove('_animation')
-	sumka.classList.add('_animation')
+function reloading() {
+	button.onclick = function () {
+		document.location.reload();
+	}
 }
+
+
